@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 public class Reserva {
@@ -32,12 +33,18 @@ public class Reserva {
             return;
         }
 
+        System.out.print("Ingrese precio por dia: ");
+        double precioDia = sc.nextDouble();
+
+        double costoEstimado = calcularCostoEstimado(fechaInicio, fechaFin, precioDia);
+
         System.out.println("\nReserva registrada correctamente.");
         System.out.println("Usuario: " + usuarioId);
         System.out.println("Vehiculo: " + vehiculoId);
         System.out.println("Fecha de inicio: " + fechaInicio);
         System.out.println("Fecha de fin: " + fechaFin);
         System.out.println("Estado: Vehiculo disponible");
+        System.out.println("Costo estimado: S/ " + costoEstimado);
 
         sc.close();
     }
@@ -48,5 +55,14 @@ public class Reserva {
 
     public static boolean validarDisponibilidad(boolean tieneReservaSuperpuesta) {
         return !tieneReservaSuperpuesta;
+    }
+
+    public static double calcularCostoEstimado(
+            LocalDate fechaInicio,
+            LocalDate fechaFin,
+            double precioDia) {
+
+        long dias = ChronoUnit.DAYS.between(fechaInicio, fechaFin);
+        return dias * precioDia;
     }
 }
