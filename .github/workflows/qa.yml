@@ -1,0 +1,25 @@
+name: Control de Calidad (QA)
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Compilar y validar
+        run: javac -d out src/*.java
+
+      - name: Ejecutar pruebas de QA
+        run: javac -cp out -d out test/*.java && java -ea -cp out ReservaTest
