@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noir - Reservas de Vehículos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="contenedor">
+        <section class="tarjeta">
+            <h1>NOIR</h1>
+            <p class="subtitulo">Sistema de Reservas de Vehículos</p>
+
+            <form id="reservaForm">
+                <label for="vehiculo">Vehículo</label>
+                <select id="vehiculo">
+                    <option value="200">Toyota Corolla - S/ 200 por día</option>
+                    <option value="250">Hyundai Tucson - S/ 250 por día</option>
+                    <option value="300">Mazda CX-5 - S/ 300 por día</option>
+                </select>
+
+                <label for="fechaInicio">Fecha de inicio</label>
+                <input type="date" id="fechaInicio" required>
+
+                <label for="fechaFin">Fecha de fin</label>
+                <input type="date" id="fechaFin" required>
+
+                <button type="submit">Calcular reserva</button>
+            </form>
+
+            <div id="resultado" class="resultado oculto"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
