@@ -1,5 +1,5 @@
 name: Control de Calidad (QA)
-run-name: Control de Calidad (QA) - PR #${{ github.event.pull_request.number }}
+run-name: Control de Calidad (QA) - develop a main
 
 on:
   pull_request:
